@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dietitian Assessment Form</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+  <style>
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="banner">
+    <div id="currentDateTime" class="datetime"></div>
+    <div class="dropdown">
+      <button class="dropbtn">Menu &#9660;</button>
+      <div class="dropdown-content">
+        <a href="index.html">Assessment of Health Goals</a>
+        <a href="diinas.html">Dietary Intake Assessment</a>
+        <a href="nuan.html">Nutrient Analysis</a>
+        <a href="eveapa.html">Evaluation of Eating Patterns</a>
+        <a href="idnugaco.html">Identification of Nutritional Gaps or Concerns</a>
+        <a href="pere.html">Personalized Recommendations</a>
+        <a href="foupmo.html">Follow-Up and Monitoring</a>
+      </div>
+    </div>
+  </div>
+
+
+<body>
+  <h1>Assessment of Health Goals</h1>
+  
+  <form id="assessmentForm">
+    <label for="fname">First Name:</label>
+    <input type="text" id="fname" name="fname" required>
+
+    <label for="lname">Last Name:</label>
+    <input type="text" id="lname" name="lname" required>
+    
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required>
+    
+    <label for="weight">Weight (in kg):</label>
+    <input type="number" id="weight" name="weight" required>
+    
+    <label for="height">Height (in cm):</label>
+    <input type="number" id="height" name="height" required>
+    
+    <label for="healthGoals">Health Goals:</label>
+    <textarea id="healthGoals" name="healthGoals" required></textarea>
+    
+    <label for="medicalHistory">Medical History:</label>
+    <textarea id="medicalHistory" name="medicalHistory" required></textarea>
+    
+    <label for="allergies">Allergies:</label>
+    <textarea id="allergies" name="allergies" required></textarea>
+    
+    <label for="dietaryRestrictions">Dietary Restrictions:</label>
+    <textarea id="dietaryRestrictions" name="dietaryRestrictions" required></textarea>
+    
+    <button type="submit">Submit</button>
+  </form>
+  
+
+  <script>
+    $(document).ready(function() {
+      $('#assessmentForm').submit(function(e) {
+        e.preventDefault(); // Prevent form submission
+        
+        // Retrieve form inputs
+        var name = $('#name').val();
+        var age = $('#age').val();
+        var weight = $('#weight').val();
+        var height = $('#height').val();
+        var healthGoals = $('#healthGoals').val();
+        var medicalHistory = $('#medicalHistory').val();
+        var allergies = $('#allergies').val();
+        var dietaryRestrictions = $('#dietaryRestrictions').val();
+        
+        // Create an object with the form data
+        var formData = {
+          name: name,
+          age: age,
+          weight: weight,
+          height: height,
+          healthGoals: healthGoals,
+          medicalHistory: medicalHistory,
+          allergies: allergies,
+          dietaryRestrictions: dietaryRestrictions
+        };
+        
+        // Save the form data to local database (e.g., Local Storage)
+        localStorage.setItem('assessmentData', JSON.stringify(formData));
+        
+        // Optional: Display a success message
+        alert('Form data saved successfully!');
+        
+        // Reset the form
+        $('#assessmentForm')[0].reset();
+      });
+    });
+
+
+        $(document).ready(function() {
+          // Function to get the current local time and date
+          function getCurrentDateTime() {
+            var now = new Date();
+            var dateTimeString = now.toLocaleString();
+            $('#currentDateTime').text(dateTimeString);
+          }
+    
+          // Update the current local time and date every second
+          setInterval(getCurrentDateTime, 1000);
+        });
+
+  </script>
+
+
+</body>
+</html>

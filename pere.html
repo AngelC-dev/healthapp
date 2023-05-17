@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Personalized Recommendations</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+  <style>
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+
+  
+</head>
+<body>
+  <div class="container">
+    <div class="banner">
+      <div id="currentDateTime" class="datetime"></div>
+      <div class="dropdown">
+        <button class="dropbtn">Menu &#9660;</button>
+        <div class="dropdown-content">
+          <a href="index.html">Assessment of Health Goals</a>
+          <a href="diinas.html">Dietary Intake Assessment</a>
+          <a href="nuan.html">Nutrient Analysis</a>
+          <a href="eveapa.html">Evaluation of Eating Patterns</a>
+          <a href="idnugaco.html">Identification of Nutritional Gaps or Concerns</a>
+          <a href="pere.html">Personalized Recommendations</a>
+          <a href="foupmo.html">Follow-Up and Monitoring</a>
+        </div>
+      </div>
+    </div>
+
+
+<body>
+  <div class="container">
+    <h1>Personalized Recommendations</h1>
+    <form action="save.php" method="POST">
+      <div class="form-group">
+        <label for="dietaryModifications">Dietary Modifications:</label>
+        <textarea id="dietaryModifications" name="dietaryModifications" rows="5"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="portionControlStrategies">Portion Control Strategies:</label>
+        <textarea id="portionControlStrategies" name="portionControlStrategies" rows="5"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="mealPlanning">Meal Planning:</label>
+        <textarea id="mealPlanning" name="mealPlanning" rows="5"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="healthyFoodChoices">Education on Healthy Food Choices:</label>
+        <textarea id="healthyFoodChoices" name="healthyFoodChoices" rows="5"></textarea>
+      </div>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+    
+<script>   
+    $(document).ready(function() {
+        // Function to get the current local time and date
+        function getCurrentDateTime() {
+          var now = new Date();
+          var dateTimeString = now.toLocaleString();
+          $('#currentDateTime').text(dateTimeString);
+        }
+  
+        // Update the current local time and date every second
+        setInterval(getCurrentDateTime, 1000);
+      });
+
+</script>
+
+
+</body>
+</html>
